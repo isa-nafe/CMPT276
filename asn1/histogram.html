@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Histogram</title>
+        <link rel="stylesheet" href="./resources/css/histogram.css">
+    </head>
+    <body>
+        <div class = "histogram"> 
+            <!-- Elements of the Lower bounds section of the Website -->
+            <!-- Textboxes take data and send them to the Criteria[] array in .js according to their tags -->
+            <span id="redText">Lower bounds</span> <br>
+                <!-- Max -->
+                <div> 
+                    Max <input type = "number" id = "Max"> <br>
+                    A+  <input type = "number" id = "A+">  <br>
+                    A   <input type = "number" id = "A">   <br>
+                    A-  <input type = "number" id = "A-">  <br>
+                    B+  <input type = "number" id = "B+">  <br>
+                    B   <input type = "number" id = "B">   <br>
+                    B-  <input type = "number" id = "B-">  <br>
+                    C+  <input type = "number" id = "C+">  <br>
+                    C   <input type = "number" id = "C">   <br>
+                    C-  <input type = "number" id = "C-">  <br>
+                    D   <input type = "number" id = "D">   <br>
+                    F   <input type = "number" id = "F">   <br>
+                </div>
+                <br>
+                <button onclick="pushCriteria()">Submit</button> <br>
+                <br>
+
+                <div class="container">
+                    <span id="redText">Histogram</span> <br>
+                        <div class="histogram-grades">
+                        Max <br class="grade-label">
+                        A+  <br class="grade-label">
+                        A   <br class="grade-label">
+                        A-  <br class="grade-label">
+                        B+  <br class="grade-label">
+                        B   <br class="grade-label">
+                        B-  <br class="grade-label">
+                        C+  <br class="grade-label">
+                        C   <br class="grade-label">
+                        C-  <br class="grade-label">
+                        D   <br class="grade-label">
+                        F   <br class="grade-label">
+                        </div>
+                </div>
+
+                <div class="container1">
+                    <span id="blackText">New Grade:</span> 
+                        <input type = "number" id = "newGrade"> <br>
+                        <button onclick="pushGrade()"> Submit </button>
+                </div>
+        </div>
+        <script src ="./histogram.js"></script>
+    </body>
+</html>
