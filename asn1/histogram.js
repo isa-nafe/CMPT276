@@ -52,6 +52,7 @@ function pushCriteria() {
   }
 
 function updateHistogramArray(newGrade) {
+    
     if (newGrade == criteriaArray[0]) {
         histogramArray[0]++;
     }

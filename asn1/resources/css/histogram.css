@@ -22,7 +22,7 @@ div {
 }
 
 input {
-    width: 10%;
+    width: 5%;
     position: absolute;
     left: 120px;
 }
@@ -61,11 +61,5 @@ button {
 .container {
   position: relative;
   left: 300px;
-  bottom: 412px;
-}
-
-.container1 {
-  position: relative;
-  left: 300px;
-  bottom: 410px;
+  bottom: 405px;
 }
