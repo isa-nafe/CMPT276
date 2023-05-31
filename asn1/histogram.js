@@ -5,36 +5,41 @@ var criteriaArray = [100, 95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 0];
 console.log(criteriaArray);
 
 function updateHistogramDisplay() {
-    var histogramGrades = document.querySelectorAll(".histogram-grades > br");
-  
-    // Iterate over each grade label
-    for (var i = 0; i < histogramGrades.length; i++) {
-      var gradeElement = histogramGrades[i];
-      var gradeCount = histogramArray[i];
-  
-      // Clear any existing grade marks
-      var nextSibling = gradeElement.nextSibling;
+  var histogramGrades = document.querySelectorAll(".histogram-grades > br");
+
+  // Iterate over each grade label
+  for (var i = 0; i < histogramGrades.length; i++) {
+    var gradeElement = histogramGrades[i];
+    var gradeCount = histogramArray[i];
+
+    // Clear any existing grade marks
+    var nextSibling = gradeElement.nextSibling;
+    while (nextSibling && nextSibling.nodeType !== 1) {
+      nextSibling = nextSibling.nextSibling;
+    }
+
+    while (nextSibling && nextSibling.classList && nextSibling.classList.contains("grade-mark")) {
+      gradeElement.parentNode.removeChild(nextSibling);
+      nextSibling = gradeElement.nextSibling;
       while (nextSibling && nextSibling.nodeType !== 1) {
         nextSibling = nextSibling.nextSibling;
       }
-  
-      while (nextSibling && nextSibling.classList && nextSibling.classList.contains("grade-mark")) {
-        gradeElement.parentNode.removeChild(nextSibling);
-        nextSibling = gradeElement.nextSibling;
-        while (nextSibling && nextSibling.nodeType !== 1) {
-          nextSibling = nextSibling.nextSibling;
-        }
-      }
-  
-      // Add grade marks based on the count in histogramArray
-      for (var j = 0; j < gradeCount; j++) {
-        var oElement = document.createElement("span");
-        oElement.textContent = "O";
-        oElement.classList.add("grade-mark");
-        gradeElement.parentNode.insertBefore(oElement, gradeElement.nextSibling);
-      }
+    }
+
+    // Add grade marks based on the count in histogramArray
+    for (var j = 0; j < gradeCount; j++) {
+      var oElement = document.createElement("span");
+      oElement.textContent = "O";
+      oElement.classList.add("grade-mark");
+      gradeElement.parentNode.insertBefore(oElement, gradeElement.nextSibling);
+
+      // Add a space after each grade mark
+      var spaceElement = document.createElement("span");
+      spaceElement.textContent = " ";
+      gradeElement.parentNode.insertBefore(spaceElement, gradeElement.nextSibling);
     }
   }
+}
 
 // Function to be called when the first submit button is pressed
 function pushCriteria() {
